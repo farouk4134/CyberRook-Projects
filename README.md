@@ -26,19 +26,31 @@ Phishing Investigation & Email Header Analysis	BTLO Challenge
 
 Scripting & Automation for Threat Mitigation	SOC Automation Lab
 Windows Event Analysis & Threat Hunting	SOC Lab (Winlogbeat + ELK Stack)
+
 🧰 Tools
+
 🕸️ Network & IDS
 <div> <img src="https://img.shields.io/badge/-Wireshark-1679A7?&style=for-the-badge&logo=Wireshark&logoColor=white" /> <img src="https://img.shields.io/badge/-Suricata-EF3B2D?&style=for-the-badge&logo=Suricata&logoColor=white" /> <img src="https://img.shields.io/badge/-Snort-EF3B2D?&style=for-the-badge&logo=Snort&logoColor=white" /> <img src="https://img.shields.io/badge/-Zeek-777BB4?&style=for-the-badge&logo=Zeek&logoColor=white" /> <img src="https://img.shields.io/badge/-Cisco_Packet_Tracer-0078D7?&style=for-the-badge&logo=Cisco&logoColor=white" /> </div>
+
 💻 Endpoint Security
 <div> <img src="https://img.shields.io/badge/-Velociraptor-4B275F?&style=for-the-badge&logo=Velociraptor&logoColor=white" /> <img src="https://img.shields.io/badge/-Microsoft_Defender_for_Endpoint-00A4EF?&style=for-the-badge&logo=Microsoft&logoColor=white" /> </div>
+
 📊 SIEM & Monitoring
-<div> <img src="https://img.shields.io/badge/-Wazuh-4F46E5?&style=for-the-badge&logo=Wazuh&logoColor=white" /> <img src="https://img.shields.io/badge/-Elastic_Stack_(ELK)-005571?&style=for-the-badge&logo=Elastic&logoColor=white" /> <img src="https://img.shields.io/badge/-Splunk-000000?&style=for-the-badge&logo=Splunk&logoColor=white" /> <img src="https://img.shields.io/badge/-Graylog-FF0000?&style=for-the-badge&logo=Graylog&logoColor=white" /> <img src="https://img.shields.io/badge/-Microsoft_Sentinel-0078D4?&style=for-the-badge&logo=Microsoft&logoColor=white" /> </div>
+<div> <img src="https://img.shields.io/badge/-Wazuh-4F46E5?&style=for-the-badge&logo=Wazuh&logoColor=white" /> <img src="https://img.shields.io/badge/-Elastic_Stack_(ELK)-005571?&style=for-the-badge&logo=Elastic&logoColor=white" /> <img src="https://img.shields.io/badge/-Splunk-000000?&style=for-the-badge&logo=Splunk&logoColor=white" /> <img src="https://img.shields.io/badge/-Microsoft_Sentinel-0078D4?&style=for-the-badge&logo=Microsoft&logoColor=white" /> </div>
+
 ⚙️ SOC Automation & IR
-<div> <img src="https://img.shields.io/badge/-Shuffle_SOAR-FFB800?&style=for-the-badge&logo=Shuffle&logoColor=white" /> <img src="https://img.shields.io/badge/-TheHive-2E3440?&style=for-the-badge&logo=TheHive&logoColor=white" /> <img src="https://img.shields.io/badge/-Cortex_Analyzer-FF6F00?&style=for-the-badge&logo=Cortex&logoColor=white" /> <img src="https://img.shields.io/badge/-VirusTotal-394EFF?&style=for-the-badge&logo=VirusTotal&logoColor=white" /> </div>
+<div> <img src="https://img.shields.io/badge/-Shuffle_SOAR-FFB800?&style=for-the-badge&logo=Shuffle&logoColor=white" /> <img src="https://img.shields.io/badge/-VirusTotal-394EFF?&style=for-the-badge&logo=VirusTotal&logoColor=white" /> </div>
+
 🧩 Development & Tools
 <div> <img src="https://img.shields.io/badge/-Python-3776AB?&style=for-the-badge&logo=Python&logoColor=white" /> <img src="https://img.shields.io/badge/-XAMPP-FB7A24?&style=for-the-badge&logo=XAMPP&logoColor=white" /> <img src="https://img.shields.io/badge/-Windows_PowerShell-5391FE?&style=for-the-badge&logo=PowerShell&logoColor=white" /> <img src="https://img.shields.io/badge/-GitHub-181717?&style=for-the-badge&logo=GitHub&logoColor=white" /> </div>
+
 📜 Certifications
-<div> <img src="https://img.shields.io/badge/-Security%2B-FF0000?&style=for-the-badge&logo=CompTIA&logoColor=white" /> <img src="https://img.shields.io/badge/-ISC2_Certified-2AAB7B?&style=for-the-badge&logo=ISC2&logoColor=white" /> </div>
+<div>
+  <img src="https://img.shields.io/badge/-Security%2B-FF0000?&style=for-the-badge&logo=CompTIA&logoColor=white" />
+  <img src="https://img.shields.io/badge/-ISC2_Certified-2AAB7B?&style=for-the-badge&logo=ISC2&logoColor=white" />
+  <img src="https://img.shields.io/badge/-CSA_EC--Council-990000?&style=for-the-badge&logo=EC-Council&logoColor=white" />
+</div>
+
 🚀 Projects
 
 Detection Lab: SIEM setup with ELK stack for log collection, analysis, and threat correlation.
