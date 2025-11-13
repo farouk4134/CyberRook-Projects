@@ -4,7 +4,7 @@ Hello, I'm Farouk
 
 I'm Umar Farouk Ahmad, a passionate cybersecurity enthusiast and recent graduate in Computer Information Systems. I have a strong background in IT Support, system administration, and security fundamentals. Over the years, I’ve transitioned my curiosity into practical experience by building hands-on SOC labs, automating detection workflows, and integrating security tools into realistic simulations.
 
-With certifications in CompTIA Security+ and ISC2, I’m now focused on growing as a Security Operations Center (SOC) Analyst (Tier 1) — mastering detection, response, and continuous learning through labbing and experimentation.
+With certifications in CompTIA Security+ and ISC2, and EC Council CSA I’m now focused on growing as a Security Operations Center (SOC) Analyst (Tier 1) — mastering detection, response, and continuous learning through labbing and experimentation.
 
 🎯 Objective
 
