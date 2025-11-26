@@ -26,7 +26,7 @@ Use this as-is for your documentation.
     - **Site Name:** `Admin11` (or any name you want)
     - **Physical Path:** `C:\inetpub\`
 4. Click **Next**
-![image.png](screenshots/IIS/Winfeatures.png)
+![image.png](screenshots/IIS/ftpsite.png)
 ---
 
 ## **3. Bindings**
