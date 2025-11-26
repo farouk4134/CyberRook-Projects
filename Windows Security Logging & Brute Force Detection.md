@@ -37,7 +37,7 @@ The goal is to showcase the ability to detect unauthorized login attempts using 
 4. Apply and close the policy window.
 
 **Screenshot:**
-
+![image.png](screenshots/loggins/secpol.png)
 ![image.png](screenshots/loggins/auditpol.png)
 
 
