@@ -45,7 +45,7 @@ The goal is to showcase the ability to detect unauthorized login attempts using 
 
 ---
 
-![image.png](screenshots/loggins/hydra.png)
+
 
 ## **2. Generate Brute Force Attempts**
 
@@ -58,16 +58,13 @@ The goal is to showcase the ability to detect unauthorized login attempts using 
 hydra -L /root/Wordlist/userlist.txt -P /root/Wordlist/pass.txt ftp://<target_IP>
 
 ```
-
 1. Record login attempts and capture successful credentials.
 
 **Screenshot:**
 
-![image.png](attachment:dfd5021c-8518-474d-9404-9fefa025b266:image.png)
+![image.png](screenshots/loggins/hydra.png)
 
 ---
-
-![image.png](attachment:20e566ef-19e2-46de-ad80-b7368a1687e8:image.png)
 
 ## **3. Analyze Windows Event Logs**
 
@@ -79,11 +76,11 @@ hydra -L /root/Wordlist/userlist.txt -P /root/Wordlist/pass.txt ftp://<target_IP
 
 **Screenshot:**
 
-![image.png](attachment:2869bb7a-7ef4-48e5-993a-7debeab87b28:image.png)
+![image.png](screenshots/loggins/Event.png)
 
 ---
 
-![image.png](attachment:4017fb0f-3178-4ab5-9928-2eec4cadecaa:image.png)
+![image.png](screenshots/loggins/logs.png)
 
 ## **Results**
 
