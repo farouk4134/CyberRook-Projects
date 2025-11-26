@@ -38,7 +38,7 @@ The goal is to showcase the ability to detect unauthorized login attempts using 
 
 **Screenshot:**
 
-![Loggins Step 1](screenshot/loggins/auditpol.png)
+![image.png](screenshots/loggins/auditpol.png)
 
 
 ---
