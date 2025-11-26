@@ -38,7 +38,8 @@ The goal is to showcase the ability to detect unauthorized login attempts using 
 
 **Screenshot:**
 
-![image.png](attachment:f8ea87c6-6f4e-48ee-b2ef-2a87ab54791d:image.png)
+![Step 1]auditpol.PNG)
+
 
 ---
 
