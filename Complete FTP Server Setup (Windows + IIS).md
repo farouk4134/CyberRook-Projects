@@ -26,7 +26,7 @@ Use this as-is for your documentation.
     - **Site Name:** `Admin11` (or any name you want)
     - **Physical Path:** `C:\inetpub\`
 4. Click **Next**
-![image.png](screenshots/loggins/Winfeatures.png)
+![image.png](screenshots/IIS/Winfeatures.png)
 ---
 
 ## **3. Bindings**
@@ -49,7 +49,7 @@ Use this as-is for your documentation.
 
 Finish the wizard.
 
-![image.png](screenshots/loggins/FTPdone.png)
+![image.png](screenshots/IIS/FTPdone.png)
 
 ---
 
@@ -92,7 +92,7 @@ netstat -ano | findstr :21
 
 You should see the FTP listener.
 
-![image.png](screenshots/loggins/confirm.png)
+![image.png](screenshots/IIS/confirm.png)
 
 ---
 
@@ -109,4 +109,4 @@ Enter the Windows username + password.
 
 If it logs in and you see directories → your server is ready.
 
-![image.png](screenshots/loggins/kalistep.png)
+![image.png](screenshots/IIS/kalistep.png)
