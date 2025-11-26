@@ -45,7 +45,7 @@ The goal is to showcase the ability to detect unauthorized login attempts using 
 
 ---
 
-![image.png](screenshots/loggins/hydra_BFA.png)
+![image.png](screenshots/loggins/hydra.png)
 
 ## **2. Generate Brute Force Attempts**
 
