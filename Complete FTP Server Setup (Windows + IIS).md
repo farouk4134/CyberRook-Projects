@@ -14,7 +14,7 @@ Use this as-is for your documentation.
         - FTP Extensibility
 3. Apply and restart if needed.
 
-![image.png](screenshots/loggins/Winfeatures.png)
+![image.png](screenshots/IIS/Winfeatures.png)
 
 ---
 
