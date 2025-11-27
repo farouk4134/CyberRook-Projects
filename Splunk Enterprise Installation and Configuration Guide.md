@@ -62,7 +62,7 @@
 
 (*You can see all your VM forwarding to the port 9997*)
 
-![image.png](screenshots/splunk/forwardlist.png)
+![image.png](screenshots/splunk/cmd.png)
 
 ---
 
@@ -80,4 +80,4 @@
 
 **Screenshot:**
 
-![image.png](screenshots/splunk/cmd.png)
+![image.png](screenshots/splunk/forwardlist.png)
