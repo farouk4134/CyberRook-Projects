@@ -42,9 +42,9 @@
     ```
     
 
-![image.png](attachment:18526116-5ae1-4d37-91eb-0707272f08be:image.png)
+![image.png](screenshots/splunk/receive.png)
 
-![image.png](attachment:d3dab4a0-c224-4bed-a8f7-714966f86ba0:image.png)
+![image.png](screenshots/splunk/port.png)
 
 1. Add **Port 9997** (default for Universal Forwarders).
 2. Click **Save**. Splunk Enterprise is now ready to accept data from forwarders.
@@ -62,7 +62,7 @@
 
 (*You can see all your VM forwarding to the port 9997*)
 
-![image.png](attachment:9192285c-1c30-4bd4-b7ba-396ccc744f04:image.png)
+![image.png](screenshots/splunk/forwardlist.png)
 
 ---
 
@@ -80,4 +80,4 @@
 
 **Screenshot:**
 
-![image.png](attachment:4a92f357-e5a9-4723-ad99-5ebafd45a61f:image.png)
+![image.png](screenshots/splunk/cmd.png)
