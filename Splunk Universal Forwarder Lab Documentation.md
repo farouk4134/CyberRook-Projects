@@ -126,3 +126,6 @@ Forward Windows Event Logs (Security, System, Application) from a Windows VM to 
 **Screenshot:**
 
 ![image.png](screenshots/splunk/search.png)
+
+
+Conclusion:
