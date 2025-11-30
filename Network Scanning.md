@@ -43,9 +43,9 @@ This lab will demonstrate the following network scan attempts to find open ports
 
 - Windows server 2012
 - Attacker’s Kali Linux Machine
-- Nmap -sS 10.10.10.12
-- nmap -sT -T4 10.10.10.12
-- nmap -sU -T5 10.10.10.12
+- Nmap -sS 192.186.0.186
+- nmap -sT -T4 192.186.0.186
+- nmap -sU -T5 192.186.0.186
 
 **Steps Taken:**
 
