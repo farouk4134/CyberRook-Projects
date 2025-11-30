@@ -19,7 +19,7 @@ The purpose of this document is to:
 
 This documentation supports the transition from foundational SOC analyst skills to more advanced incident response capabilities, making it a useful reference for future studies and real-world applications in SOC environments.
 
-# Project 3: Network  Level Threats - Network Scanning
+# Network  Level Threats - Network Scanning
 
 **Understanding the Working of Network Scanning Attacks**
 
