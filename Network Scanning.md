@@ -54,7 +54,7 @@ This lab will demonstrate the following network scan attempts to find open ports
 3. To find exploitable vulnerabilities on targeted system **WinServer2012** attacker can perform various network scans. To demonstrate this, open **Terminal** (in Kali).
 4. To perform **SYN** Scan on the target machine, type the command **nmap -sS 10.10.10.12** in terminal and then press **Enter**
     
-    ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c00812a2-fbb1-4ce5-bb83-c9097d7f0523/ddedbef9-7934-4b07-8405-193b2a3aacb4/image.png)
+![image.png](screenshots/scans/nmap-sS.png)
     
     > SYN Scan gets information from the remote host without the complete TCP handshake process.
     > 
