@@ -52,34 +52,33 @@ This lab will demonstrate the following network scan attempts to find open ports
 1. Launch attacker’s Kali Linux Virtual machine.
 2. Login to the attacker’s Kali Linux machine providing username & password
 3. To find exploitable vulnerabilities on targeted system **WinServer2012** attacker can perform various network scans. To demonstrate this, open **Terminal** (in Kali).
-4. To perform **SYN** Scan on the target machine, type the command **nmap -sS 10.10.10.12** in terminal and then press **Enter**
+4. To perform **SYN** Scan on the target machine, type the command **nmap -sS 192.168.0.186** in terminal and then press **Enter**
     
-![image.png](screenshots/scans/nmap-sS.png)
     
     > SYN Scan gets information from the remote host without the complete TCP handshake process.
     > 
 5.  This displays the output of **SYN** scan giving details, state, and services running on the target system.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c00812a2-fbb1-4ce5-bb83-c9097d7f0523/62a95626-1154-495f-99b7-12551f313aab/image.png)
+![image.png](screenshots/scans/nmap-sS.png)
 
-1. To perform **TCP Full** connect scan, type the command **nmap -sT -T4 10.10.10.12** and press **Enter**.
+
+1. To perform **TCP Full** connect scan, type the command **nmap -sT -T4 192.168.0.186** and press **Enter**.
 
 > TCP Full scan will determine if a port is open on the target system.
 > 
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c00812a2-fbb1-4ce5-bb83-c9097d7f0523/174c2301-7c25-4401-81ca-4d6a1a01395e/image.png)
+![image.png](screenshots/scans/nmap-sT.png)
 
 1. This displays the **TCP Full** scan giving details of state and services running on the target system.
 
 ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c00812a2-fbb1-4ce5-bb83-c9097d7f0523/4941a403-e48b-43a6-848b-4d43fb137931/image.png)
 
-1. To perform **UDP scan** type **nmap -sU -T5 10.10.10.12** in the terminal and hit **Enter**.
+1. To perform **UDP scan** type **nmap -sU -T5 192.186.0.186** in the terminal and hit **Enter**.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c00812a2-fbb1-4ce5-bb83-c9097d7f0523/e12bae27-45e1-40e3-a6ce-b93a660ca1bf/image.png)
+
 
 1. This will display output of UDP scan. It shows that UDP port 137 is open. Close all the open windows
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c00812a2-fbb1-4ce5-bb83-c9097d7f0523/5d6883c2-1151-4ff2-92ff-78d06721983a/image.png)
 
 1. This infers that the attacker can get valuable information from such network scanning attempts.
 
