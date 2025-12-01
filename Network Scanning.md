@@ -69,18 +69,18 @@ This lab will demonstrate the following network scan attempts to find open ports
 
 ![image.png](screenshots/scans/nmap-sT.png)
 
-1. This displays the **TCP Full** scan giving details of state and services running on the target system.
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c00812a2-fbb1-4ce5-bb83-c9097d7f0523/4941a403-e48b-43a6-848b-4d43fb137931/image.png)
-
-1. To perform **UDP scan** type **nmap -sU -T5 192.186.0.186** in the terminal and hit **Enter**.
+2. This displays the **TCP Full** scan giving details of state and services running on the target system.
 
 
 
-1. This will display output of UDP scan. It shows that UDP port 137 is open. Close all the open windows
+3. To perform **UDP scan** type **nmap -sU -T5 192.186.0.186** in the terminal and hit **Enter**.
 
 
-1. This infers that the attacker can get valuable information from such network scanning attempts.
+
+4. This will display output of UDP scan. It shows that UDP port 137 is open. Close all the open windows
+
+
+5. This infers that the attacker can get valuable information from such network scanning attempts.
 
 **Results**:
 
@@ -94,21 +94,3 @@ In this exercise you have learnt how attacker runs various network scan attempts
 - SYN Scan Attempt
 - TCP Full Connect Scan Attempt
 - UDP Scan Attempt
-
-**Assessment 2.3.1:**
-
-Perform a SYN scan on 10.10.10.12 and identify the port that is open among 22, 80, and 111.
-
-Answer: 80
-
-**Assessment 2.3.2:**
-
-Perform a TCP full connect scan on 10.10.10.12 and identify the port that is open among 443, 445, and 3389.
-
-Answer: 445
-
-**Assessment 2.3.3:**
-
-Perform a UDP scan on 10.10.10.12 and identify the port that is open among 111, 137 and 139.
-
-Answer: 137
