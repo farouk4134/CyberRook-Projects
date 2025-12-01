@@ -28,7 +28,7 @@
 
 **Screenshot:**
 
-![image.png](screenshots/scans/nmap-sS.png)
+![image.png](screenshots/splunk/login.png)
 
 ---
 
