@@ -27,7 +27,10 @@ Sign in to Splunk using:
 
 Username: admin
 
-Password: admin@123
+Password: yourpassword
+
+![image.png](screenshots/splunk/login.png)
+
 
 From the sidebar, select Search & Reporting.
 
@@ -52,6 +55,8 @@ Detect accounts with high failed login attempts within 5 minutes.
 Check if a successful login eventually occurred.
 
 Filter out noise by setting thresholds (Attempts ≥5).
+
+![image.png](screenshots/splunk/brute.png)
 
 3. Convert Query Into an Alert
 
@@ -83,13 +88,15 @@ Severity: High
 
 Saved the alert.
 
+![image.png](screenshots/splunk/brute3.png)
+
 6. Triggering the Brute Force Attack
 
 Over on the Kali machine:
 
 Ran Hydra against the Windows Server:
 
-hydra -L /root/Wordlist/userlist.txt -P /root/Wordlist/pass.txt ftp://10.10.10.12
+hydra -L /root/Wordlist/userlist.txt -P /root/Wordlist/pass.txt ftp://192.168.0.186
 
 
 Hydra cycles through username/password pairs.
@@ -97,7 +104,7 @@ This generates EventCode 4625 (failed logins).
 
 After Hydra finds valid credentials, I manually logged into FTP using:
 
-ftp 10.10.10.12
+ftp 192.168.0.186
 username: administrator
 password: Pa$$w0rd
 
