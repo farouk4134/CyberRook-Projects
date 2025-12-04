@@ -62,6 +62,8 @@ Filter out noise by setting thresholds (Attempts ≥5).
 
 Click Save As → Alert.
 
+![image.png](screenshots/splunk/brute2.png)
+
 Filled in the alert details:
 
 Title: Failed Login Attempts
