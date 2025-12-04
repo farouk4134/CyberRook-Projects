@@ -111,7 +111,7 @@ ftp 192.168.0.186
 username: administrator
 password: Pa$$w0rd
 
-
+![image.png](screenshots/splunk/brute4.png)
 This generates EventCode 4624 (successful login).
 
 This combination should trigger the Splunk alert.
@@ -124,7 +124,11 @@ Went to Activity → Triggered Alerts
 
 The alert fired as expected.
 
+![image.png](screenshots/splunk/alerts.png)
+
 Opened View Results to review all fields from the detection.
+
+![image.png](screenshots/splunk/alerts2.png)
 
 Results
 
