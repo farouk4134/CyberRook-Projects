@@ -92,6 +92,7 @@ Saved the alert.
 
 ![image.png](screenshots/splunk/brute3.png)
 
+
 6. Triggering the Brute Force Attack
 
 Over on the Kali machine:
