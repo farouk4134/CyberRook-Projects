@@ -1,1 +1,18 @@
+**nderstanding Logs, Event, Incident.**
 
+IIS logs can act as event data source to detect SQL injection attempts.
+
+**Lab Scenario**
+
+The presence of specific patterns or signatures in the IIS logs denotes the SQL injection attempts. You can identify such patterns and create alerts to detect SQL injection attempt. As a SOC analyst, you should be able to identify the monitoring need, event source, and minimum configuration needed to detect these types of attempts.
+
+**Lab Objectives**
+
+The objective of this lab is to create Splunk SIEM use case for detecting SQL injection attempts.
+
+**Lab Tasks**
+
+- [ ]  Click [WinServer2012](https://labclient.labondemand.com/Instructions/9545dbbf-3281-4219-9029-6e3464921f7b#) machine.
+    
+    > If WinServer2012 is already launched, skip to step 3
+    >
