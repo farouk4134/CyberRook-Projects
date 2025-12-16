@@ -1,7 +1,6 @@
-Platform: TryHackMe – Advent of Cyber 2025 (Day 10)
 Focus: Alert triage, investigation, and log correlation in Microsoft Sentinel
 
-Objective
+**Objective**
 
 Understand alert triaging and prioritisation
 
@@ -11,7 +10,7 @@ Correlate alerts and logs to identify real malicious activity
 
 Build investigation context and timelines
 
-Environment
+**Environment**
 
 Microsoft Azure Portal
 
@@ -21,13 +20,12 @@ Custom log table: Syslog_CL
 
 Lab-provided Azure tenant and credentials
 
-Step 1: Access Azure Portal
+**Step 1: Access Azure Portal**
 
 Open the Microsoft Azure Portal
 
-Log in using the provided Temporary Access Pass (TAP) credentials from TryHackMe
+Log in using the provided Temporary Access Pass (TAP) credentials
 
-📸 Screenshot: Azure login successful / Azure portal dashboard
 
 Step 2: Open Microsoft Sentinel
 
@@ -35,7 +33,7 @@ In the Azure Portal search bar, search for Microsoft Sentinel
 
 Click your assigned Sentinel workspace
 
-📸 Screenshot: Sentinel instance overview page
+![image.png](screenshots/Sentinel/dash1.png)
 
 Step 3: Verify Log Ingestion (Syslog_CL)
 
