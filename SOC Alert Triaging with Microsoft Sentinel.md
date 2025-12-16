@@ -180,6 +180,8 @@ Persistence setup
 
 Potential full system compromise
 
+![image.png](screenshots/Sentinel/kql.png)
+
 **Step 12: Investigation Outcome**
 
 **NOTES:**
@@ -200,6 +202,8 @@ Next Action:
 Escalate to Incident Response
 
 Containment and remediation required
+
+![image.png](screenshots/Sentinel/rootkql.png)
 
 Key Takeaways
 
