@@ -1,5 +1,5 @@
-Blue Team Investigation: Web Command Injection via Apache (Splunk)
-Objective
+*Blue Team Investigation: Web Command Injection via Apache (Splunk)
+Objective*
 
 Investigate suspicious Apache web activity, identify command injection attempts, trace OS-level execution, decode Base64 payloads, and reconstruct the full attack chain using Splunk.
 
