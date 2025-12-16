@@ -33,6 +33,7 @@ In the Azure Portal search bar, search for Microsoft Sentinel
 
 Click your assigned Sentinel workspace
 
+![image.png](screenshots/Sentinel/dash1.png)
 
 Step 3: Verify Log Ingestion (Syslog_CL)
 
@@ -45,9 +46,10 @@ Syslog_CL
 
 Run the query and wait for logs to render
 
-Note: Log ingestion may take a few minutes. Refresh if needed.
+**Note:** Log ingestion may take a few minutes. Refresh if needed.
 
-📸 Screenshot: Syslog_CL query results visible
+
+![image.png](screenshots/Sentinel/dash2.png)
 
 Step 4: Prepare Analytics Rules
 
@@ -61,9 +63,9 @@ Re-select the same rules and click Enable
 
 This forces the rules to retrigger and generate incidents.
 
-📸 Screenshot: Analytics rules disabled and re-enabled confirmation
 
-Step 5: Open Incidents Queue
+
+**Step 5: Open Incidents Queue**
 
 In Sentinel, navigate to:
 Threat management → Incidents
@@ -72,7 +74,8 @@ Set a custom date range if no incidents are visible
 
 Refresh the page if needed
 
-📸 Screenshot: Incidents dashboard showing multiple incidents
+
+![image.png](screenshots/Sentinel/incidents.png)
 
 Step 6: Alert Triaging Methodology
 
@@ -107,7 +110,8 @@ Tactic: Privilege Escalation
 
 Click View full details
 
-📸 Screenshot: Incident summary and full details view
+
+![image.png](screenshots/Sentinel/fulldetails.png)
 
 Step 8: Analyse Related Alerts
 
@@ -124,7 +128,7 @@ Root SSH Login	Initial Access
 SUID Discovery	Privilege Escalation Attempt
 Kernel Module Insertion	Persistence
 
-📸 Screenshot: Incident timeline showing related alerts
+
 
 Step 9: Dive into Event Evidence
 
@@ -138,7 +142,8 @@ Installation timestamp
 
 Affected host
 
-📸 Screenshot: Event evidence showing kernel module insertion
+
+![image.png](screenshots/Sentinel/moduleinsert.png)
 
 Step 10: Deep Log Analysis with KQL
 
@@ -151,7 +156,7 @@ Syslog_CL
 | project _timestamp_t, host_s, Message
 
 
-📸 Screenshot: KQL query results for app-02
+![image.png](screenshots/Sentinel/kmilogs.png)
 
 Step 11: Identify Suspicious Activity
 
@@ -175,12 +180,12 @@ Persistence setup
 
 Potential full system compromise
 
-Step 12: Investigation Outcome
+**Step 12: Investigation Outcome**
 
-Verdict:
+**NOTES:**
 This incident represents real malicious activity, not a false positive.
 
-Indicators:
+**Indicators:**
 
 PrivEsc via kernel module
 
