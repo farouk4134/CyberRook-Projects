@@ -33,7 +33,6 @@ In the Azure Portal search bar, search for Microsoft Sentinel
 
 Click your assigned Sentinel workspace
 
-![image.png](screenshots/Sentinel/dash1.png)
 
 Step 3: Verify Log Ingestion (Syslog_CL)
 
