@@ -1,9 +1,9 @@
-*Blue Team Investigation: Web Command Injection via Apache (Splunk)
-Objective*
+**Blue Team Investigation: Web Command Injection via Apache (Splunk)
+Objective**
 
 Investigate suspicious Apache web activity, identify command injection attempts, trace OS-level execution, decode Base64 payloads, and reconstruct the full attack chain using Splunk.
 
-Tools & Environment
+**Tools & Environment**
 
 SIEM: Splunk
 
@@ -11,7 +11,7 @@ Web Logs: Apache Access & Error Logs
 
 Host Logs: Sysmon
 
-Attack Vector: Web-based command injection via CGI
+**Attack Vector: Web-based command injection via CGI**
 
 Index Names:
 
@@ -21,7 +21,7 @@ windows_apache_error
 
 windows_sysmon
 
-Step 1: Log in to Splunk
+**Step 1: Log in to Splunk**
 
 Open Firefox on the AttackBox.
 
@@ -41,7 +41,7 @@ Set the time range to Last 7 days or All time.
 📸 Screenshot: Splunk login page
 📸 Screenshot: Splunk Search dashboard
 
-Step 2: Detect Suspicious Web Commands (Apache Access Logs)
+**Step 2: Detect Suspicious Web Commands (Apache Access Logs)**
 Goal
 
 Identify HTTP requests attempting command execution through web parameters.
@@ -60,7 +60,7 @@ Requests targeting CGI scripts (e.g. hello.bat)
 
 📸 Screenshot: Apache access log results
 
-Step 3: Decode Base64 Payloads
+**Step 3: Decode Base64 Payloads**
 Identified Encoded String
 VABoAGkAcwAgAGkAcwAgAG4AbwB3ACAATQBpAG4AZQAhACAATQBVAEEASABBAEEASABBAEEA
 
@@ -77,7 +77,7 @@ The payload confirms attacker intent and successful command execution attempt.
 
 📸 Screenshot: Base64 decoding result
 
-Step 4: Inspect Apache Error Logs
+**Step 4: Inspect Apache Error Logs**
 Goal
 
 Confirm whether malicious requests reached backend execution.
@@ -101,7 +101,7 @@ A 500 error after a malicious request indicates backend processing and likely ex
 
 📸 Screenshot: Apache error log showing 500 errors
 
-Step 5: Trace Malicious Process Creation (Sysmon)
+**Step 5: Trace Malicious Process Creation (Sysmon)**
 Goal
 
 Identify OS-level processes spawned by Apache.
@@ -128,7 +128,7 @@ Image:       C:\Windows\System32\cmd.exe
 
 📸 Screenshot: Sysmon showing Apache spawning cmd.exe
 
-Step 6: Confirm Attacker Enumeration Activity
+**Step 6: Confirm Attacker Enumeration Activity**
 Goal
 
 Detect post-exploitation reconnaissance.
@@ -144,7 +144,7 @@ Confirms successful command execution on host.
 
 📸 Screenshot: whoami command execution in Sysmon
 
-Step 7: Identify Encoded PowerShell Execution
+**Step 7: Identify Encoded PowerShell Execution**
 Goal
 
 Check if encoded PowerShell payloads actually ran.
