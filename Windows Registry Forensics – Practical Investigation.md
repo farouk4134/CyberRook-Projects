@@ -140,7 +140,7 @@ Persistence value added:
 
 This confirms startup persistence via Run key, ensuring execution on system boot.
 
-![image.png](screenshots/forensics/7..png)
+![image.png](screenshots/forensics/7.png)
 
 
 Confirmed Answers (Lab Validation)
