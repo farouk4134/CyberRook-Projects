@@ -61,7 +61,8 @@ SOFTWARE
 
 NTUSER.DAT
 
-📸 Screenshot: Registry Explorer with loaded hives
+![image.png](screenshots/forensics/2..png)
+
 
 Findings
 Finding 1: Suspicious Application Installed
@@ -83,7 +84,8 @@ Result:
 
 Application identified: DroneManager Updater
 
-📸 Screenshot: Uninstall registry key showing DroneManager Updater
+![image.png](screenshots/forensics/4..png)
+
 
 Finding 2: Application Execution Source
 
@@ -111,7 +113,8 @@ C:\Users\dispatch.admin\Downloads\DroneManager_Setup.exe
 
 This confirms user-initiated execution from the Downloads directory, not a system-managed install.
 
-📸 Screenshot: UserAssist entry showing execution path
+![image.png](screenshots/forensics/6..png)
+
 
 Finding 3: Persistence Mechanism Identified
 
@@ -137,7 +140,8 @@ Persistence value added:
 
 This confirms startup persistence via Run key, ensuring execution on system boot.
 
-📸 Screenshot: Run key persistence entry
+![image.png](screenshots/forensics/7..png)
+
 
 Confirmed Answers (Lab Validation)
 Question	Answer
