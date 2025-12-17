@@ -47,7 +47,7 @@ Steps:
 
 Open Registry Explorer
 
-![image.png](screenshots/splunk/login.png)
+![image.png](screenshots/forensics/1..png)
 
 File → Load Hive
 
