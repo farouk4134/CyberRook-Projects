@@ -1,131 +1,171 @@
+**Windows Registry Forensics – Dispatch-SRV01 Investigation**
+
+
 **Objective**
 
-Analyze offline Windows Registry hives from a compromised host to extract forensic artifacts relevant to incident response and system compromise analysis.
+Investigate abnormal activity on dispatch-srv01 by analyzing offline Windows Registry hives to identify:
+
+Suspicious application installation
+
+Execution source path
+
+Persistence mechanism added by the application
+
+This investigation was conducted offline to preserve evidence integrity.
 
 **Tools Used**
 
 Registry Explorer (Eric Zimmerman)
 
-Offline Registry Hives (SYSTEM, SOFTWARE, SAM, NTUSER.DAT, USRCLASS.DAT)
-
-**Environment**
-
-Target Host: dispatch-srv01
-
-Registry Hive Location:
-C:\Users\Administrator\Desktop\Registry Hives
-
-Analysis Method: Offline registry analysis (non-intrusive)
-
-**Step 1: Launch Registry Explorer**
-
-Open Registry Explorer from the taskbar on the analysis machine.
-
-![image.png](screenshots/splunk/login.png)
-
-**Step 2: Load Offline Registry Hives**
-
-Click File → Load Hive
-
-Navigate to:
-
-C:\Users\Administrator\Desktop\Registry Hives
-
-
-Select a hive (example: SYSTEM)
-
-Hold SHIFT and click Open
-
-This forces transaction log replay (.LOG1, .LOG2) to load a clean hive state.
-
-Confirm successful transaction replay
-
-Repeat for all relevant hives:
+Offline Registry Hives:
 
 SYSTEM
 
 SOFTWARE
 
-SAM
+NTUSER.DAT
+
+Evidence Source
+
+Registry hives collected from the compromised host and provided at:
+
+C:\Users\Administrator\Desktop\Registry Hives
+
+
+Abnormal activity timeframe:
+
+Started: 21 October 2025
+
+Investigation Workflow
+
+
+**1. Loading Offline Registry Hives**
+
+All registry analysis was performed offline using Registry Explorer.
+
+Steps:
+
+Open Registry Explorer
+
+![image.png](screenshots/splunk/login.png)
+
+File → Load Hive
+
+Hold SHIFT + Open to replay transaction logs (clean hive state)
+
+Loaded hives:
+
+SYSTEM
+
+SOFTWARE
 
 NTUSER.DAT
 
-USRCLASS.DAT
+📸 Screenshot: Registry Explorer with loaded hives
 
-📸 Screenshot: Transaction logs successfully replayed
+Findings
+Finding 1: Suspicious Application Installed
 
-**Step 3: System Identification (Hostname)**
+Hive Analyzed: SOFTWARE
 
-Hive: SYSTEM
 Registry Path:
 
-ROOT\ControlSet001\Control\ComputerName\ComputerName
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 
+
+Action Taken:
+
+Reviewed installed applications around the abnormal activity date
+
+Identified an unfamiliar application installed shortly before suspicious behavior began
 
 Result:
 
-Hostname identified: DISPATCH-SRV01
+Application identified: DroneManager Updater
 
-📸 Screenshot: ComputerName registry key and value
+📸 Screenshot: Uninstall registry key showing DroneManager Updater
 
-**Step 4: Registry Key Navigation & Search**
+Finding 2: Application Execution Source
 
-Used Registry Explorer search bar for rapid pivoting
+Hive Analyzed: NTUSER.DAT
 
-Validated keys via:
+Registry Path:
 
-Manual path traversal
+HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist
 
-Bookmark shortcuts (Available Bookmarks tab)
 
-This method speeds up investigation during time-sensitive incident response.
+Action Taken:
 
-Step 5: Forensic Focus Areas Touched
+Reviewed UserAssist entries to determine how the application was executed
 
-During analysis, the following registry artifact categories were reviewed or validated as available for investigation:
+Decoded ROT13 UserAssist values
 
-System identity and configuration
+Correlated execution timestamp with abnormal activity window
 
-Installed applications
+Result:
 
-User activity artifacts
+Application launched from:
 
-Autostart and persistence locations
+C:\Users\dispatch.admin\Downloads\DroneManager_Setup.exe
 
-Historical execution traces
 
-(No modification performed on original evidence)
+This confirms user-initiated execution from the Downloads directory, not a system-managed install.
 
-Key Analyst Takeaways
+📸 Screenshot: UserAssist entry showing execution path
 
-Offline registry analysis prevents evidence contamination
+Finding 3: Persistence Mechanism Identified
 
-Transaction log replay is critical for accurate hive reconstruction
+Hive Analyzed: SOFTWARE
 
-Registry Explorer enables fast pivoting, binary parsing, and forensic-safe analysis
+Registry Path:
 
-Registry artifacts provide strong context for timeline reconstruction
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
-Investigation Context
 
-Host showed abnormal activity starting 21 October 2025
+Action Taken:
 
-Registry analysis supports broader incident timeline correlation alongside:
+Reviewed autorun keys for newly added startup entries
 
-Event logs
+Focused on entries linked to DroneManager components
 
-Sysmon telemetry
+Result:
 
-Network artifacts
+Persistence value added:
+
+"C:\Program Files\DroneManager\dronehelper.exe" --background
+
+
+This confirms startup persistence via Run key, ensuring execution on system boot.
+
+📸 Screenshot: Run key persistence entry
+
+Confirmed Answers (Lab Validation)
+Question	Answer
+Application installed before abnormal activity	DroneManager Updater
+Full execution path	C:\Users\dispatch.admin\Downloads\DroneManager_Setup.exe
+Persistence mechanism	"C:\Program Files\DroneManager\dronehelper.exe" --background
+Analyst Assessment
+
+Application was manually executed by the user
+
+Installed from an untrusted location (Downloads)
+
+Established registry-based persistence
+
+Activity aligns with initial access → execution → persistence
+
+This behavior is consistent with user-assisted malware installation or trojanized software.
 
 Skills Demonstrated
 
-Windows Registry forensics
+Offline registry hive analysis
 
-Offline evidence handling
+Identifying malicious software via Uninstall keys
 
-Registry Explorer usage
+Tracking execution via UserAssist artifacts
 
-Incident investigation methodology
+Detecting persistence through Run keys
 
-Artifact-based system profiling
+Timeline-based investigation using registry artifacts
+
+Evidence handling without altering source system
