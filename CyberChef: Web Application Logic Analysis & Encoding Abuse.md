@@ -175,4 +175,40 @@ Retrieved original plaintext password
 
 📸 Screenshot: CrackStation hash lookup result
 
+Lock 5: Prison Tower
+Complexity Increase
 
+Dynamic decoding logic based on Recipe ID found in headers
+
+📸 Screenshot: Header showing Recipe ID
+
+Recipe Mapping
+Recipe ID	Reverse Logic
+1	From Base64 → Reverse → ROT13
+2	From Base64 → From Hex → Reverse
+3	ROT13 → From Base64 → XOR (key)
+4	ROT13 → From Base64 → ROT47
+Final Steps
+
+Matched Recipe ID to decoding chain
+
+Built reverse recipe in CyberChef
+
+Extracted plaintext password
+
+Logged in successfully
+
+📸 Screenshot: Final CyberChef recipe
+📸 Screenshot: Final unlock confirmation
+
+Key Takeaways (SOC-Relevant)
+
+Client-side authentication logic can fully expose security controls
+
+Encoding ≠ encryption and is often reversible
+
+HTTP headers frequently leak sensitive logic
+
+CyberChef is effective for rapid analysis of chained transformations
+
+Structured analysis beats guessing
