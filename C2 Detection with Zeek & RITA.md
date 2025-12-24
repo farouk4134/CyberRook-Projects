@@ -46,3 +46,75 @@ RITA correlated connection timing, frequency, DNS patterns, certificate metadata
 
 Using rita view asyncrat, two high-interest entries immediately stood out.
 
+Finding 1 – Suspicious FQDN
+
+Destination: sunshine-bizrate-inc-software[.]trycloudflare[.]com
+
+Indicators:
+
+Unusually long FQDN
+
+Low prevalence (few internal hosts communicating)
+
+Rare TLS signature
+
+Validation:
+
+External threat intel confirmed the domain as malicious
+
+This strongly aligned with C2 infrastructure hiding behind a cloud tunneling service.
+
+Finding 2 – Suspicious External IP
+
+Destination IP: 91.134.150.150
+
+Indicators:
+
+Long-lived connections
+
+Non-standard ports
+
+High connection duration
+
+Validation:
+
+Flagged as malicious on VirusTotal
+
+The traffic pattern was consistent with beaconing behavior rather than normal application traffic.
+
+Analyst Assessment
+
+Even with a small dataset, RITA successfully highlighted:
+
+Beacon-like communication intervals
+
+Low-prevalence external endpoints
+
+Anomalous TLS and port usage
+
+This demonstrates how behavioral analytics can surface threats even when payloads are encrypted and signatures are unavailable.
+
+Key Skills Demonstrated
+
+PCAP to Zeek log conversion
+
+Network telemetry interpretation
+
+C2 detection using behavioral analytics
+
+Threat intel correlation
+
+Analyst-driven triage and prioritization
+
+Notes
+
+Screenshots included:
+
+Zeek log generation output
+
+RITA severity dashboard
+
+Threat modifier breakdown
+
+External IoC validation
+
