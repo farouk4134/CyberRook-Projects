@@ -11,7 +11,7 @@ The objective of this lab is to create ELK SIEM use case for monitoring Powershe
 
 **Lab Tasks**
 
-- [ ]  Click [WinServer2012](https://labclient.labondemand.com/Instructions/cdfc9656-afea-4528-bdd2-c5f354ae0d91#) machine.
+- [ ]  Click and open the windows virtual machine.
 
 > If Windows2012 is already launched, skip to step 3
 > 
