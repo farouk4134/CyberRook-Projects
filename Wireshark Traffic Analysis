@@ -1,0 +1,103 @@
+Wireshark Traffic Analysis — What you should focus on
+1. Start broad, then narrow
+
+Always begin with:
+
+Protocol filters (tcp, udp, arp, icmp, dns, http)
+
+Then add behavior-based filters
+
+2. Recognize common attack patterns (this is the real skill)
+🔍 Nmap scans
+
+TCP Connect scan
+
+tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size > 1024
+
+
+SYN scan
+
+tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size <= 1024
+
+
+UDP scan
+
+icmp.type==3 and icmp.code==3
+
+
+👉 Look for volume + repetition, not single packets.
+
+🧪 ARP poisoning / MITM
+
+Red flags:
+
+Same IP → multiple MAC addresses
+
+One MAC receiving most traffic
+
+Key filters:
+
+arp
+eth.src == <suspicious_mac>
+eth.dst == <suspicious_mac>
+
+🔐 Credential sniffing (HTTP)
+
+Focus on:
+
+POST requests
+
+application/x-www-form-urlencoded
+
+Filters:
+
+http.request.method == POST
+urlencoded-form contains "user"
+urlencoded-form contains "pass"
+
+🧬 Host & user identification
+
+Use protocol metadata:
+
+DHCP → hostname
+
+NBNS → workstation names
+
+Kerberos → users & hosts
+
+Examples:
+
+dhcp.option.hostname
+nbns.name
+kerberos.CNameString
+
+🚨 DNS / ICMP tunneling
+
+What matters:
+
+Long subdomains
+
+High volume
+
+Encoded-looking strings
+
+DNS:
+
+dns and strlen(dns.qry.name) > 50
+
+
+ICMP:
+
+Large payloads
+
+Repeating ICMP traffic after execution
+
+Analyst mindset (this matters more than filters)
+
+Ask yourself:
+
+Is this normal behavior for this protocol?
+
+Is there volume, repetition, or odd structure?
+
+Does it happen after another suspicious event?
