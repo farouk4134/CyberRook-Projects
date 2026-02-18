@@ -1,0 +1,268 @@
+Windows Logging for SOC — TryHackMe Notes
+
+Room: Windows Logging for SOC
+Goal: Learn how SOC analysts use Windows logs to detect, investigate, and correlate malicious activity.
+
+Overview
+
+SOC analysts rely heavily on Windows logs for alert triage, threat hunting, and incident response. This room focuses on understanding what Windows logs, where to find them, and how to interpret them in real SOC scenarios.
+
+Key log sources covered:
+
+Windows Security Logs
+
+Sysmon
+
+PowerShell History
+
+Learning Objectives
+
+Understand core Windows event logs used in SOC operations
+
+Analyze authentication, user management, and process activity
+
+Correlate events using Logon ID and Process ID
+
+Identify attacker behavior across multiple log sources
+
+Task 1: Introduction
+
+Windows logs are foundational for SOC and DFIR work. This room builds the baseline knowledge needed to analyze alerts effectively in SIEM platforms.
+
+Task 2: What Is Logged
+Windows Event Logs Basics
+
+Windows logs events whenever actions occur, such as:
+
+User logins
+
+Process execution
+
+File creation
+
+Network connections
+
+Logs are stored in:
+
+C:\Windows\System32\winevt\Logs\
+
+
+Each .evtx file represents a log category.
+
+Key Log Viewer
+
+Event Viewer (eventvwr)
+
+Logs are grouped and searchable by:
+
+Event ID
+
+Time
+
+Keywords
+
+Source
+
+Important fields:
+
+Event ID (unique identifier for event type)
+
+Timestamp (local system time)
+
+Log source (Security, Application, Sysmon, etc.)
+
+📸 Screenshot placeholder: Event Viewer overview
+
+Task 3: Security Log — Authentication
+Critical Event IDs
+
+4624 → Successful logon
+
+4625 → Failed logon
+
+Common SOC Use Cases
+Detect RDP Brute Force
+
+Filter for:
+
+Event ID: 4625
+
+Logon Types:
+
+3 (Network)
+
+10 (RDP)
+
+Red flags:
+
+Many failed attempts on one account
+
+Multiple usernames (password spraying)
+
+Unexpected source IPs or hostnames
+
+Analyze Successful RDP Logins
+
+Filter for:
+
+Event ID: 4624
+
+Logon Type: 10
+
+Key technique:
+Use Logon ID to correlate authentication with later actions.
+
+📸 Screenshot placeholder: 4624 / 4625 event details
+
+Task 4: Security Log — User Management
+Important Event IDs
+
+4720 → User created
+
+4732 → User added to group
+
+4733 → User removed from group
+
+How SOC Analysts Investigate
+
+Identify who performed the action (Subject)
+
+Identify the affected account (Object)
+
+Review changes made (Details)
+
+Red flags:
+
+New users created outside business hours
+
+Accounts added to privileged groups unexpectedly
+
+Unusual account naming patterns
+
+📸 Screenshot placeholder: User creation and group membership events
+
+Task 5: Sysmon — Process Monitoring
+Why Sysmon Matters
+
+Sysmon provides deep visibility beyond default Windows logs, especially for:
+
+Process creation
+
+Parent-child relationships
+
+File hashes
+
+User context
+
+Key Sysmon Event
+
+Event ID 1 → Process Creation
+
+SOC Analysis Workflow
+
+Review process name and path
+
+Check parent process
+
+Validate file hash
+
+Correlate using Logon ID
+
+Red flags:
+
+Executables in Downloads, Temp, or Public
+
+Random or misleading file names
+
+Browser spawning executables
+
+📸 Screenshot placeholder: Sysmon process creation event
+
+Task 6: Sysmon — Files and Network Activity
+
+Sysmon also logs:
+
+File creation
+
+Network connections
+
+DNS queries
+
+SOC Use Cases
+
+Persistence detection
+
+Startup folder modifications
+
+Registry-based persistence
+
+C2 detection
+
+Outbound connections to unknown IPs
+
+Suspicious domains (e.g. .click, .top)
+
+Non-standard ports
+
+Correlation tip:
+Use ProcessId to pivot back to Event ID 1 for full context.
+
+📸 Screenshot placeholder: Sysmon network connection event
+
+Task 7: PowerShell — Command Logging
+Why PowerShell Is Dangerous
+
+PowerShell allows attackers to:
+
+Perform discovery
+
+Download malware
+
+Exfiltrate data
+
+Execute scripts without spawning new processes
+
+PowerShell History File
+C:\Users\<USER>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+
+Key Notes
+
+Logs all typed commands
+
+One file per user
+
+Survives reboots
+
+Does NOT log command output
+
+SOC Value:
+Great for detecting hands-on-keyboard activity.
+
+📸 Screenshot placeholder: PowerShell history file
+
+Task 8: Conclusion
+Key Takeaways
+
+Security logs (4624 / 4625) are essential for authentication analysis
+
+Logon ID and Process ID are critical for correlation
+
+Sysmon provides the most actionable endpoint visibility
+
+PowerShell history is often overlooked but extremely valuable
+
+Always correlate across multiple log sources
+
+Final Notes
+
+This room builds a strong foundation for:
+
+SOC alert triage
+
+Incident response
+
+DFIR investigations
+
+SIEM-based analysis
+
+Understanding Windows logs deeply is a core SOC skill — not optional.
