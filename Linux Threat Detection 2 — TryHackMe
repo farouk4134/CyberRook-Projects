@@ -1,1 +1,274 @@
 
+Linux Threat Detection 2 — TryHackMe
+SOC-Focused Walkthrough Notes
+Executive Summary
+
+This lab focuses on Linux threat detection using:
+
+System enumeration commands
+
+Process inspection
+
+Script analysis
+
+SSH brute-force detection
+
+Audit log investigation
+
+Process execution tracing
+
+Cryptominer activity detection
+
+The investigation simulates a real-world Linux compromise involving SSH brute force, suspicious downloads, EDR evasion checks, lateral scanning, and cryptomining.
+
+1️⃣ Environment & System Enumeration
+Detect Cloud Environment
+
+Command:
+
+systemd-detect-virt
+
+Output:
+
+amazon
+
+Why it matters
+
+Confirms the host is running in AWS
+
+Cloud context is important for IR (IAM roles, exposed services, security groups)
+
+2️⃣ Process Inspection — EDR Detection
+Look for EDR / Antivirus Processes
+
+Command:
+
+ps aux
+
+Look for suspicious or security-related binaries.
+
+Detected antimalware binary:
+
+/var/lib/ultrasec/malscan
+
+Why it matters
+
+Attackers often enumerate EDR tools before executing payloads
+
+/var/lib/ultrasec/malscan indicates a security agent is installed
+
+3️⃣ Script Analysis & Command Tracing
+Identify Script That Ran hostname
+
+Using process investigation and reviewing scripts:
+
+Script path:
+
+/home/itsupport/debug.sh
+
+To inspect the script:
+
+sudo cat /home/itsupport/debug.sh
+Last Discovery Command Launched by Script
+
+Found inside debug.sh:
+
+ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu
+
+Why it matters
+
+This is a reconnaissance command
+
+Lists running processes sorted by CPU usage
+
+Common attacker discovery technique
+
+Script Author Email
+
+Inside the script:
+
+greg@tryhackme.thm
+
+Useful for:
+
+Attribution
+
+Insider threat validation
+
+Legit vs malicious script assessment
+
+4️⃣ Suspicious Downloads & Payload Analysis
+Elastic Agent Download Source
+
+Domain:
+
+artifacts.elastic.co
+
+To verify downloads:
+
+grep -i elastic /var/log/auth.log
+grep -i elastic /var/log/syslog
+Downloaded Helper Script Path
+/var/tmp/helper.sh
+
+Temporary directories (/tmp, /var/tmp) are common staging areas.
+
+To check:
+
+ls -la /var/tmp/
+cat /var/tmp/helper.sh
+Which Download Is More Likely Malicious?
+
+Between curl and wget downloads:
+
+Answer:
+
+curl
+
+Why
+
+Curl was associated with suspicious behavior
+
+Attackers often use curl for direct payload execution
+
+5️⃣ SSH Brute Force Detection
+Identify Attacker IP
+
+Check failed SSH logins:
+
+grep "Failed password" /var/log/auth.log
+
+Attacker IP:
+
+45.9.148.125
+
+Why it matters
+
+Multiple failed attempts from one IP = brute force
+
+Should be blocked immediately in production
+
+6️⃣ Post-Compromise Reconnaissance
+Command Used to List Last Logged-In Users
+
+Command:
+
+last
+
+Attackers use last to:
+
+See active accounts
+
+Identify admin users
+
+Understand login patterns
+
+7️⃣ EDR Enumeration via Audit Logs
+Which EDR Processes Were Searched With egrep?
+
+Command used to investigate:
+
+grep "egrep" /var/log/audit/audit.log
+
+Processes searched:
+
+ds_agent,falcon,sentinel
+
+These correspond to:
+
+Trend Micro (ds_agent)
+
+CrowdStrike Falcon
+
+SentinelOne
+
+Why it matters
+
+Clear defense-evasion behavior
+
+Attacker checking for security tooling
+
+8️⃣ Malicious File Transfer via SCP
+Malicious Archive Name
+
+Using audit log:
+
+ausearch -i -if /home/ubuntu/scenario/audit.log | grep PROCTITLE
+
+Archive transferred:
+
+kernupd.tar.gz
+
+Why it matters
+
+File name mimics kernel update
+
+Classic disguise technique
+
+9️⃣ Cryptominer Execution
+Full Command Line of Miner Launch
+
+Found via audit logs:
+
+nohup /tmp/.apt/kernupd/kernupd
+
+Indicators:
+
+Executed from /tmp
+
+Hidden directory .apt
+
+Used nohup for persistence
+
+To detect:
+
+ausearch -i | grep kernupd
+🔟 Internal Network Scanning
+SSH Scan Range
+
+From audit logs:
+
+10.10.12.1–10.10.12.10
+
+To locate:
+
+ausearch -i | grep ssh
+
+Why it matters
+
+Indicates lateral movement attempt
+
+Internal recon phase
+
+High severity in enterprise environments
+
+Key Detection Techniques Used
+
+systemd-detect-virt → environment awareness
+
+ps aux → process inspection
+
+grep on auth logs → brute-force detection
+
+Script review → command tracing
+
+ausearch -i → audit log analysis
+
+Process execution tracing → cryptominer detection
+
+Network range extraction → lateral movement detection
+
+Final SOC Takeaways
+
+Always check SSH logs first in Linux compromises
+
+Attackers enumerate EDR before deploying payloads
+
+/tmp and /var/tmp are high-risk execution paths
+
+Audit logs provide command-line ground truth
+
+Internal scanning is a major escalation indicator
+
+Cryptominers often use nohup and hidden directories
+
